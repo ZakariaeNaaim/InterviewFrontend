@@ -1,0 +1,51 @@
+$color-primary: #0d6efd;
+$color-secondary: #6c757d;
+$color-success: #198754;
+$color-danger: #dc3545;
+$color-body-bg: #f8f9fa;
+$color-card-bg: #ffffff;
+$color-text: #212529;
+
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+
+$radius-sm: 0.25rem; // 4px
+$radius-md: 0.75rem; // 12px
+$radius-lg: 1rem; // 16px
+
+// Card sizes
+$card-min-height: 7.5rem; // 120px -> 7.5rem
+$card-image-height: 7.5rem; // 120px
+
+// Typography
+$font-base: 1rem; // 16px
+$font-scale-lg: 1.25rem;
+
+/* Generate CSS custom properties so components (without SCSS imports) can still use them */
+:root {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-success: #{$color-success};
+  --color-danger: #{$color-danger};
+  --color-body-bg: #{$color-body-bg};
+  --color-card-bg: #{$color-card-bg};
+  --color-text: #{$color-text};
+
+  --space-xs: #{$space-xs};
+  --space-sm: #{$space-sm};
+  --space-md: #{$space-md};
+  --space-lg: #{$space-lg};
+  --space-xl: #{$space-xl};
+
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+
+  --card-min-height: #{$card-min-height};
+  --card-image-height: #{$card-image-height};
+
+  --font-base: #{$font-base};
+}
