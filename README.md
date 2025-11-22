@@ -1,27 +1,33 @@
 # InterviewApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.
+This is a minimal Angular 15 frontend for the Orders module. It connects to the backend via HttpClient and displays order summaries in a simple table.
 
-## Development server
+## Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 15
+- TypeScript
+- HttpClient
+- Reactive Forms
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Table to display OrderSummary
+- Async/await for API calls
 
-## Build
+## Trade-offs & Design Decisions
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Using Modules instead of Standalone to ensure compatibility with older devices and team practices — the team mentioned they sometimes use old Angular versions
 
-## Running unit tests
+## Next Steps
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Add error handling service with toast notifications
+2. Add loading indicators for API calls
+3. Add pagination and filtering to OrderSummary table
+4. Remove Modules and use of Standalone Components
+5. migrate to Angular 19
 
-## Running end-to-end tests
+## Setup
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Run `npm install`
+2. Update API base URL in `environment.ts`
+3. Run `ng serve`
