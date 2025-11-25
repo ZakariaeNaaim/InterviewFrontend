@@ -1,8 +1,10 @@
 export interface Order {
-  OrderId: number;
-  Quantity: number;
-  UnitPrice: number;
-  TotalPrice: number;
-  OrderDate: Date;
-  Status: string;
+  orderId: number;
+  quantity: number;
+  unitPrice: number;
+  totalPrice: number;
+  orderDate: string;
+  status: string;
+  productId: number;
+  customerId: number;
 }

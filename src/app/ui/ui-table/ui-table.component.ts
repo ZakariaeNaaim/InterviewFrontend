@@ -25,23 +25,30 @@ export class UiTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() data: any[] = [];
   @Input() columns: TableColumn[] = [];
 
-  dataSource = new MatTableDataSource<any>([]);
+  @Input() pageSize = 10;
+  @Input() pageSizeOptions: number[] = [5, 10, 25, 50];
 
   displayedColumns: string[] = [];
+  dataSource = new MatTableDataSource<any>([]);
+
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   @ViewChild(MatSort) sort?: MatSort;
 
   ngOnInit(): void {
-    this.updateTable();
+    this.updateColumns();
+    this.dataSource.data = this.data || [];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['columns'] && changes['columns'].currentValue) {
-      this.displayedColumns = this.columns.map((c) => c.key);
+    if (changes['columns']?.currentValue) {
+      this.updateColumns();
     }
 
-    if (changes['data']) {
+    if (changes['data']?.currentValue) {
       this.dataSource.data = this.data || [];
+      if (this.paginator) {
+        this.paginator.firstPage();
+      }
     }
   }
 
@@ -54,8 +61,7 @@ export class UiTableComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
-  private updateTable(): void {
+  private updateColumns(): void {
     this.displayedColumns = (this.columns || []).map((c) => c.key);
-    this.dataSource.data = this.data || [];
   }
 }

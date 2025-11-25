@@ -1,0 +1,18 @@
+<div class="orders-header">
+  <h2 class="orders-title">Orders</h2>
+</div>
+
+<div *ngIf="isLoading" class="orders-loader">
+  <mat-spinner diameter="40"></mat-spinner>
+</div>
+
+<ng-container *ngIf="!isLoading">
+  <app-ui-table
+    [data]="orders"
+    [columns]="columns"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+  ></app-ui-table>
+
+  <div *ngIf="!orders.length" class="orders-empty">No orders found.</div>
+</ng-container>
